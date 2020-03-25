@@ -11,7 +11,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import common_pb2 as common__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+from . import common_pb2 as common__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -19,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='schema',
   syntax='proto3',
   serialized_options=b'\n\023com.phisuite.schemaB\nEventProtoP\001',
-  serialized_pb=b'\n\x0b\x65vent.proto\x12\x06schema\x1a\x0c\x63ommon.proto\"\xa3\x01\n\x05\x45vent\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.schema.Status\x12\x1e\n\x07payload\x18\x04 \x03(\x0b\x32\r.schema.Field\x12\x1e\n\x07options\x18\x05 \x03(\x0b\x32\r.schema.Field\x12\x1b\n\x05\x66iles\x18\x06 \x03(\x0b\x32\x0c.schema.File2\x81\x02\n\x08\x45ventAPI\x12(\n\x04List\x12\x0f.schema.Options\x1a\r.schema.Event0\x01\x12%\n\x03Get\x12\x0f.schema.Options\x1a\r.schema.Event\x12&\n\x06\x43reate\x12\r.schema.Event\x1a\r.schema.Event\x12&\n\x06Update\x12\r.schema.Event\x1a\r.schema.Event\x12(\n\x08\x41\x63tivate\x12\r.schema.Event\x1a\r.schema.Event\x12*\n\nDeactivate\x12\r.schema.Event\x1a\r.schema.EventB#\n\x13\x63om.phisuite.schemaB\nEventProtoP\x01\x62\x06proto3'
+  serialized_pb=b'\n\x0b\x65vent.proto\x12\x06schema\x1a\x1cgoogle/api/annotations.proto\x1a\x0c\x63ommon.proto\"f\n\x05\x45vent\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.schema.Status\x12\x1e\n\x07payload\x18\n \x03(\x0b\x32\r.schema.Field2\xb4\x01\n\x0c\x45ventReadAPI\x12J\n\x04List\x12\x0f.schema.Options\x1a\r.schema.Event\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/schema/event/v0/inspect0\x01\x12X\n\x03Get\x12\x0f.schema.Options\x1a\r.schema.Event\"1\x82\xd3\xe4\x93\x02+\x12)/schema/event/v0/inspect/{name}/{version}2\xfc\x02\n\rEventWriteAPI\x12J\n\x06\x43reate\x12\r.schema.Event\x1a\r.schema.Event\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/schema/event/v0/create:\x01*\x12[\n\x06Update\x12\r.schema.Event\x1a\r.schema.Event\"3\x82\xd3\xe4\x93\x02-\x1a(/schema/event/v0/update/{name}/{version}:\x01*\x12^\n\x08\x41\x63tivate\x12\x0f.schema.Options\x1a\r.schema.Event\"2\x82\xd3\xe4\x93\x02,2*/schema/event/v0/activate/{name}/{version}\x12\x62\n\nDeactivate\x12\x0f.schema.Options\x1a\r.schema.Event\"4\x82\xd3\xe4\x93\x02.2,/schema/event/v0/deactivate/{name}/{version}B#\n\x13\x63om.phisuite.schemaB\nEventProtoP\x01\x62\x06proto3'
   ,
-  dependencies=[common__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,common__pb2.DESCRIPTOR,])
 
 
 
@@ -56,21 +57,7 @@ _EVENT = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='payload', full_name='schema.Event.payload', index=3,
-      number=4, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='options', full_name='schema.Event.options', index=4,
-      number=5, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='files', full_name='schema.Event.files', index=5,
-      number=6, type=11, cpp_type=10, label=3,
+      number=10, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -87,14 +74,12 @@ _EVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=38,
-  serialized_end=201,
+  serialized_start=67,
+  serialized_end=169,
 )
 
 _EVENT.fields_by_name['status'].enum_type = common__pb2._STATUS
 _EVENT.fields_by_name['payload'].message_type = common__pb2._FIELD
-_EVENT.fields_by_name['options'].message_type = common__pb2._FIELD
-_EVENT.fields_by_name['files'].message_type = common__pb2._FILE
 DESCRIPTOR.message_types_by_name['Event'] = _EVENT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -108,72 +93,87 @@ _sym_db.RegisterMessage(Event)
 
 DESCRIPTOR._options = None
 
-_EVENTAPI = _descriptor.ServiceDescriptor(
-  name='EventAPI',
-  full_name='schema.EventAPI',
+_EVENTREADAPI = _descriptor.ServiceDescriptor(
+  name='EventReadAPI',
+  full_name='schema.EventReadAPI',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=204,
-  serialized_end=461,
+  serialized_start=172,
+  serialized_end=352,
   methods=[
   _descriptor.MethodDescriptor(
     name='List',
-    full_name='schema.EventAPI.List',
+    full_name='schema.EventReadAPI.List',
     index=0,
     containing_service=None,
     input_type=common__pb2._OPTIONS,
     output_type=_EVENT,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002\032\022\030/schema/event/v0/inspect',
   ),
   _descriptor.MethodDescriptor(
     name='Get',
-    full_name='schema.EventAPI.Get',
+    full_name='schema.EventReadAPI.Get',
     index=1,
     containing_service=None,
     input_type=common__pb2._OPTIONS,
     output_type=_EVENT,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002+\022)/schema/event/v0/inspect/{name}/{version}',
   ),
+])
+_sym_db.RegisterServiceDescriptor(_EVENTREADAPI)
+
+DESCRIPTOR.services_by_name['EventReadAPI'] = _EVENTREADAPI
+
+
+_EVENTWRITEAPI = _descriptor.ServiceDescriptor(
+  name='EventWriteAPI',
+  full_name='schema.EventWriteAPI',
+  file=DESCRIPTOR,
+  index=1,
+  serialized_options=None,
+  serialized_start=355,
+  serialized_end=735,
+  methods=[
   _descriptor.MethodDescriptor(
     name='Create',
-    full_name='schema.EventAPI.Create',
-    index=2,
+    full_name='schema.EventWriteAPI.Create',
+    index=0,
     containing_service=None,
     input_type=_EVENT,
     output_type=_EVENT,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002\034\"\027/schema/event/v0/create:\001*',
   ),
   _descriptor.MethodDescriptor(
     name='Update',
-    full_name='schema.EventAPI.Update',
-    index=3,
+    full_name='schema.EventWriteAPI.Update',
+    index=1,
     containing_service=None,
     input_type=_EVENT,
     output_type=_EVENT,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002-\032(/schema/event/v0/update/{name}/{version}:\001*',
   ),
   _descriptor.MethodDescriptor(
     name='Activate',
-    full_name='schema.EventAPI.Activate',
-    index=4,
+    full_name='schema.EventWriteAPI.Activate',
+    index=2,
     containing_service=None,
-    input_type=_EVENT,
+    input_type=common__pb2._OPTIONS,
     output_type=_EVENT,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002,2*/schema/event/v0/activate/{name}/{version}',
   ),
   _descriptor.MethodDescriptor(
     name='Deactivate',
-    full_name='schema.EventAPI.Deactivate',
-    index=5,
+    full_name='schema.EventWriteAPI.Deactivate',
+    index=3,
     containing_service=None,
-    input_type=_EVENT,
+    input_type=common__pb2._OPTIONS,
     output_type=_EVENT,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002.2,/schema/event/v0/deactivate/{name}/{version}',
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_EVENTAPI)
+_sym_db.RegisterServiceDescriptor(_EVENTWRITEAPI)
 
-DESCRIPTOR.services_by_name['EventAPI'] = _EVENTAPI
+DESCRIPTOR.services_by_name['EventWriteAPI'] = _EVENTWRITEAPI
 
 # @@protoc_insertion_point(module_scope)

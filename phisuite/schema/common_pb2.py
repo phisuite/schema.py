@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='schema',
   syntax='proto3',
   serialized_options=b'\n\023com.phisuite.schemaB\013CommonProtoP\001',
-  serialized_pb=b'\n\x0c\x63ommon.proto\x12\x06schema\"H\n\x07Options\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.schema.Status\"\x8e\x01\n\x05\x46ield\x12\x0c\n\x04name\x18\x01 \x01(\t\x12 \n\x04type\x18\x02 \x01(\x0e\x32\x12.schema.Field.Type\"U\n\x04Type\x12\n\n\x06STRING\x10\x00\x12\n\n\x06NUMBER\x10\x01\x12\x0b\n\x07\x42OOLEAN\x10\x02\x12\t\n\x05\x45MAIL\x10\x03\x12\x08\n\x04\x44\x41TE\x10\x04\x12\x08\n\x04TIME\x10\x05\x12\t\n\x05\x43OLOR\x10\x06\"S\n\x04\x46ile\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1f\n\x04type\x18\x02 \x01(\x0e\x32\x11.schema.File.Type\"\x1c\n\x04Type\x12\n\n\x06SINGLE\x10\x00\x12\x08\n\x04LIST\x10\x01*9\n\x06Status\x12\x0f\n\x0bUNACTIVATED\x10\x00\x12\r\n\tACTIVATED\x10\x01\x12\x0f\n\x0b\x44\x45\x41\x43TIVATED\x10\x02\x42$\n\x13\x63om.phisuite.schemaB\x0b\x43ommonProtoP\x01\x62\x06proto3'
+  serialized_pb=b'\n\x0c\x63ommon.proto\x12\x06schema\"H\n\x07Options\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.schema.Status\"\xf6\x01\n\x05\x46ield\x12\x0c\n\x04name\x18\x01 \x01(\t\x12 \n\x04type\x18\x02 \x01(\x0e\x32\x12.schema.Field.Type\x12(\n\x08\x63\x61tegory\x18\x03 \x01(\x0e\x32\x16.schema.Field.Category\"k\n\x04Type\x12\n\n\x06STRING\x10\x00\x12\n\n\x06NUMBER\x10\x01\x12\x0b\n\x07\x42OOLEAN\x10\x02\x12\x08\n\x04\x46ILE\x10\n\x12\n\n\x06\x46OLDER\x10\x0b\x12\t\n\x05\x45MAIL\x10\x14\x12\x08\n\x04\x44\x41TE\x10\x15\x12\x08\n\x04TIME\x10\x16\x12\t\n\x05\x43OLOR\x10\x17\"&\n\x08\x43\x61tegory\x12\x0c\n\x08REQUIRED\x10\x00\x12\x0c\n\x08OPTIONAL\x10\x01*9\n\x06Status\x12\x0f\n\x0bUNACTIVATED\x10\x00\x12\r\n\tACTIVATED\x10\x01\x12\x0f\n\x0b\x44\x45\x41\x43TIVATED\x10\x02\x42$\n\x13\x63om.phisuite.schemaB\x0b\x43ommonProtoP\x01\x62\x06proto3'
 )
 
 _STATUS = _descriptor.EnumDescriptor(
@@ -43,8 +43,8 @@ _STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=328,
-  serialized_end=385,
+  serialized_start=347,
+  serialized_end=404,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS)
 
@@ -73,50 +73,58 @@ _FIELD_TYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='EMAIL', index=3, number=3,
+      name='FILE', index=3, number=10,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='DATE', index=4, number=4,
+      name='FOLDER', index=4, number=11,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TIME', index=5, number=5,
+      name='EMAIL', index=5, number=20,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='COLOR', index=6, number=6,
+      name='DATE', index=6, number=21,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TIME', index=7, number=22,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='COLOR', index=8, number=23,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=156,
-  serialized_end=241,
+  serialized_start=198,
+  serialized_end=305,
 )
 _sym_db.RegisterEnumDescriptor(_FIELD_TYPE)
 
-_FILE_TYPE = _descriptor.EnumDescriptor(
-  name='Type',
-  full_name='schema.File.Type',
+_FIELD_CATEGORY = _descriptor.EnumDescriptor(
+  name='Category',
+  full_name='schema.Field.Category',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='SINGLE', index=0, number=0,
+      name='REQUIRED', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='LIST', index=1, number=1,
+      name='OPTIONAL', index=1, number=1,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=298,
-  serialized_end=326,
+  serialized_start=307,
+  serialized_end=345,
 )
-_sym_db.RegisterEnumDescriptor(_FILE_TYPE)
+_sym_db.RegisterEnumDescriptor(_FIELD_CATEGORY)
 
 
 _OPTIONS = _descriptor.Descriptor(
@@ -185,41 +193,9 @@ _FIELD = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-    _FIELD_TYPE,
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=99,
-  serialized_end=241,
-)
-
-
-_FILE = _descriptor.Descriptor(
-  name='File',
-  full_name='schema.File',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='schema.File.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='schema.File.type', index=1,
-      number=2, type=14, cpp_type=8, label=1,
+      name='category', full_name='schema.Field.category', index=2,
+      number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -229,7 +205,8 @@ _FILE = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _FILE_TYPE,
+    _FIELD_TYPE,
+    _FIELD_CATEGORY,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -237,18 +214,17 @@ _FILE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=243,
-  serialized_end=326,
+  serialized_start=99,
+  serialized_end=345,
 )
 
 _OPTIONS.fields_by_name['status'].enum_type = _STATUS
 _FIELD.fields_by_name['type'].enum_type = _FIELD_TYPE
+_FIELD.fields_by_name['category'].enum_type = _FIELD_CATEGORY
 _FIELD_TYPE.containing_type = _FIELD
-_FILE.fields_by_name['type'].enum_type = _FILE_TYPE
-_FILE_TYPE.containing_type = _FILE
+_FIELD_CATEGORY.containing_type = _FIELD
 DESCRIPTOR.message_types_by_name['Options'] = _OPTIONS
 DESCRIPTOR.message_types_by_name['Field'] = _FIELD
-DESCRIPTOR.message_types_by_name['File'] = _FILE
 DESCRIPTOR.enum_types_by_name['Status'] = _STATUS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -265,13 +241,6 @@ Field = _reflection.GeneratedProtocolMessageType('Field', (_message.Message,), {
   # @@protoc_insertion_point(class_scope:schema.Field)
   })
 _sym_db.RegisterMessage(Field)
-
-File = _reflection.GeneratedProtocolMessageType('File', (_message.Message,), {
-  'DESCRIPTOR' : _FILE,
-  '__module__' : 'common_pb2'
-  # @@protoc_insertion_point(class_scope:schema.File)
-  })
-_sym_db.RegisterMessage(File)
 
 
 DESCRIPTOR._options = None
