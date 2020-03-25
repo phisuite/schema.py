@@ -11,9 +11,10 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import common_pb2 as common__pb2
-import event_pb2 as event__pb2
-import entity_pb2 as entity__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+from . import common_pb2 as common__pb2
+from . import event_pb2 as event__pb2
+from . import entity_pb2 as entity__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,29 +22,73 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='schema',
   syntax='proto3',
   serialized_options=b'\n\023com.phisuite.schemaB\014ProcessProtoP\001',
-  serialized_pb=b'\n\rprocess.proto\x12\x06schema\x1a\x0c\x63ommon.proto\x1a\x0b\x65vent.proto\x1a\x0c\x65ntity.proto\"\x80\x02\n\x07Process\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.schema.Status\x12&\n\x05input\x18\x04 \x01(\x0b\x32\x17.schema.Process.Payload\x12\'\n\x06output\x18\x05 \x01(\x0b\x32\x17.schema.Process.Payload\x12\x1c\n\x05\x65rror\x18\x06 \x01(\x0b\x32\r.schema.Event\x1aG\n\x07Payload\x12\x1c\n\x05\x65vent\x18\x01 \x01(\x0b\x32\r.schema.Event\x12\x1e\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\x0e.schema.Entity2\xe9\x01\n\nProcessAPI\x12*\n\x04List\x12\x0f.schema.Options\x1a\x0f.schema.Process0\x01\x12\'\n\x03Get\x12\x0f.schema.Options\x1a\x0f.schema.Process\x12*\n\x06\x43reate\x12\x0f.schema.Process\x1a\x0f.schema.Process\x12*\n\x06Update\x12\x0f.schema.Process\x1a\x0f.schema.Process\x12.\n\nDeactivate\x12\x0f.schema.Process\x1a\x0f.schema.ProcessB%\n\x13\x63om.phisuite.schemaB\x0cProcessProtoP\x01\x62\x06proto3'
+  serialized_pb=b'\n\rprocess.proto\x12\x06schema\x1a\x1cgoogle/api/annotations.proto\x1a\x0c\x63ommon.proto\x1a\x0b\x65vent.proto\x1a\x0c\x65ntity.proto\"\xbc\x02\n\x07Process\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.schema.Status\x12.\n\ndefinition\x18\n \x01(\x0b\x32\x1a.schema.Process.Definition\x1a|\n\nDefinition\x12#\n\x05input\x18\x01 \x01(\x0b\x32\x14.schema.Process.Data\x12$\n\x06output\x18\x02 \x01(\x0b\x32\x14.schema.Process.Data\x12#\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x14.schema.Process.Data\x1a\x44\n\x04\x44\x61ta\x12\x1c\n\x05\x65vent\x18\x01 \x01(\x0b\x32\r.schema.Event\x12\x1e\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\x0e.schema.Entity2\xbe\x01\n\x0eProcessReadAPI\x12N\n\x04List\x12\x0f.schema.Options\x1a\x0f.schema.Process\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/schema/process/v0/inspect0\x01\x12\\\n\x03Get\x12\x0f.schema.Options\x1a\x0f.schema.Process\"3\x82\xd3\xe4\x93\x02-\x12+/schema/process/v0/inspect/{name}/{version}2\x92\x03\n\x0fProcessWriteAPI\x12P\n\x06\x43reate\x12\x0f.schema.Process\x1a\x0f.schema.Process\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/schema/process/v0/create:\x01*\x12\x61\n\x06Update\x12\x0f.schema.Process\x1a\x0f.schema.Process\"5\x82\xd3\xe4\x93\x02/\x1a*/schema/process/v0/update/{name}/{version}:\x01*\x12\x62\n\x08\x41\x63tivate\x12\x0f.schema.Options\x1a\x0f.schema.Process\"4\x82\xd3\xe4\x93\x02.2,/schema/process/v0/activate/{name}/{version}\x12\x66\n\nDeactivate\x12\x0f.schema.Options\x1a\x0f.schema.Process\"6\x82\xd3\xe4\x93\x02\x30\x32./schema/process/v0/deactivate/{name}/{version}B%\n\x13\x63om.phisuite.schemaB\x0cProcessProtoP\x01\x62\x06proto3'
   ,
-  dependencies=[common__pb2.DESCRIPTOR,event__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,common__pb2.DESCRIPTOR,event__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
 
 
 
-_PROCESS_PAYLOAD = _descriptor.Descriptor(
-  name='Payload',
-  full_name='schema.Process.Payload',
+_PROCESS_DEFINITION = _descriptor.Descriptor(
+  name='Definition',
+  full_name='schema.Process.Definition',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='event', full_name='schema.Process.Payload.event', index=0,
+      name='input', full_name='schema.Process.Definition.input', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='entity', full_name='schema.Process.Payload.entity', index=1,
+      name='output', full_name='schema.Process.Definition.output', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='schema.Process.Definition.error', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=219,
+  serialized_end=343,
+)
+
+_PROCESS_DATA = _descriptor.Descriptor(
+  name='Data',
+  full_name='schema.Process.Data',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='event', full_name='schema.Process.Data.event', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='entity', full_name='schema.Process.Data.entity', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -61,8 +106,8 @@ _PROCESS_PAYLOAD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=252,
-  serialized_end=323,
+  serialized_start=345,
+  serialized_end=413,
 )
 
 _PROCESS = _descriptor.Descriptor(
@@ -94,22 +139,8 @@ _PROCESS = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='input', full_name='schema.Process.input', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='output', full_name='schema.Process.output', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='error', full_name='schema.Process.error', index=5,
-      number=6, type=11, cpp_type=10, label=1,
+      name='definition', full_name='schema.Process.definition', index=3,
+      number=10, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -117,7 +148,7 @@ _PROCESS = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_PROCESS_PAYLOAD, ],
+  nested_types=[_PROCESS_DEFINITION, _PROCESS_DATA, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -126,26 +157,35 @@ _PROCESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=67,
-  serialized_end=323,
+  serialized_start=97,
+  serialized_end=413,
 )
 
-_PROCESS_PAYLOAD.fields_by_name['event'].message_type = event__pb2._EVENT
-_PROCESS_PAYLOAD.fields_by_name['entity'].message_type = entity__pb2._ENTITY
-_PROCESS_PAYLOAD.containing_type = _PROCESS
+_PROCESS_DEFINITION.fields_by_name['input'].message_type = _PROCESS_DATA
+_PROCESS_DEFINITION.fields_by_name['output'].message_type = _PROCESS_DATA
+_PROCESS_DEFINITION.fields_by_name['error'].message_type = _PROCESS_DATA
+_PROCESS_DEFINITION.containing_type = _PROCESS
+_PROCESS_DATA.fields_by_name['event'].message_type = event__pb2._EVENT
+_PROCESS_DATA.fields_by_name['entity'].message_type = entity__pb2._ENTITY
+_PROCESS_DATA.containing_type = _PROCESS
 _PROCESS.fields_by_name['status'].enum_type = common__pb2._STATUS
-_PROCESS.fields_by_name['input'].message_type = _PROCESS_PAYLOAD
-_PROCESS.fields_by_name['output'].message_type = _PROCESS_PAYLOAD
-_PROCESS.fields_by_name['error'].message_type = event__pb2._EVENT
+_PROCESS.fields_by_name['definition'].message_type = _PROCESS_DEFINITION
 DESCRIPTOR.message_types_by_name['Process'] = _PROCESS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Process = _reflection.GeneratedProtocolMessageType('Process', (_message.Message,), {
 
-  'Payload' : _reflection.GeneratedProtocolMessageType('Payload', (_message.Message,), {
-    'DESCRIPTOR' : _PROCESS_PAYLOAD,
+  'Definition' : _reflection.GeneratedProtocolMessageType('Definition', (_message.Message,), {
+    'DESCRIPTOR' : _PROCESS_DEFINITION,
     '__module__' : 'process_pb2'
-    # @@protoc_insertion_point(class_scope:schema.Process.Payload)
+    # @@protoc_insertion_point(class_scope:schema.Process.Definition)
+    })
+  ,
+
+  'Data' : _reflection.GeneratedProtocolMessageType('Data', (_message.Message,), {
+    'DESCRIPTOR' : _PROCESS_DATA,
+    '__module__' : 'process_pb2'
+    # @@protoc_insertion_point(class_scope:schema.Process.Data)
     })
   ,
   'DESCRIPTOR' : _PROCESS,
@@ -153,68 +193,93 @@ Process = _reflection.GeneratedProtocolMessageType('Process', (_message.Message,
   # @@protoc_insertion_point(class_scope:schema.Process)
   })
 _sym_db.RegisterMessage(Process)
-_sym_db.RegisterMessage(Process.Payload)
+_sym_db.RegisterMessage(Process.Definition)
+_sym_db.RegisterMessage(Process.Data)
 
 
 DESCRIPTOR._options = None
 
-_PROCESSAPI = _descriptor.ServiceDescriptor(
-  name='ProcessAPI',
-  full_name='schema.ProcessAPI',
+_PROCESSREADAPI = _descriptor.ServiceDescriptor(
+  name='ProcessReadAPI',
+  full_name='schema.ProcessReadAPI',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=326,
-  serialized_end=559,
+  serialized_start=416,
+  serialized_end=606,
   methods=[
   _descriptor.MethodDescriptor(
     name='List',
-    full_name='schema.ProcessAPI.List',
+    full_name='schema.ProcessReadAPI.List',
     index=0,
     containing_service=None,
     input_type=common__pb2._OPTIONS,
     output_type=_PROCESS,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002\034\022\032/schema/process/v0/inspect',
   ),
   _descriptor.MethodDescriptor(
     name='Get',
-    full_name='schema.ProcessAPI.Get',
+    full_name='schema.ProcessReadAPI.Get',
     index=1,
     containing_service=None,
     input_type=common__pb2._OPTIONS,
     output_type=_PROCESS,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002-\022+/schema/process/v0/inspect/{name}/{version}',
   ),
+])
+_sym_db.RegisterServiceDescriptor(_PROCESSREADAPI)
+
+DESCRIPTOR.services_by_name['ProcessReadAPI'] = _PROCESSREADAPI
+
+
+_PROCESSWRITEAPI = _descriptor.ServiceDescriptor(
+  name='ProcessWriteAPI',
+  full_name='schema.ProcessWriteAPI',
+  file=DESCRIPTOR,
+  index=1,
+  serialized_options=None,
+  serialized_start=609,
+  serialized_end=1011,
+  methods=[
   _descriptor.MethodDescriptor(
     name='Create',
-    full_name='schema.ProcessAPI.Create',
-    index=2,
+    full_name='schema.ProcessWriteAPI.Create',
+    index=0,
     containing_service=None,
     input_type=_PROCESS,
     output_type=_PROCESS,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002\036\"\031/schema/process/v0/create:\001*',
   ),
   _descriptor.MethodDescriptor(
     name='Update',
-    full_name='schema.ProcessAPI.Update',
-    index=3,
+    full_name='schema.ProcessWriteAPI.Update',
+    index=1,
     containing_service=None,
     input_type=_PROCESS,
     output_type=_PROCESS,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002/\032*/schema/process/v0/update/{name}/{version}:\001*',
+  ),
+  _descriptor.MethodDescriptor(
+    name='Activate',
+    full_name='schema.ProcessWriteAPI.Activate',
+    index=2,
+    containing_service=None,
+    input_type=common__pb2._OPTIONS,
+    output_type=_PROCESS,
+    serialized_options=b'\202\323\344\223\002.2,/schema/process/v0/activate/{name}/{version}',
   ),
   _descriptor.MethodDescriptor(
     name='Deactivate',
-    full_name='schema.ProcessAPI.Deactivate',
-    index=4,
+    full_name='schema.ProcessWriteAPI.Deactivate',
+    index=3,
     containing_service=None,
-    input_type=_PROCESS,
+    input_type=common__pb2._OPTIONS,
     output_type=_PROCESS,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\00202./schema/process/v0/deactivate/{name}/{version}',
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_PROCESSAPI)
+_sym_db.RegisterServiceDescriptor(_PROCESSWRITEAPI)
 
-DESCRIPTOR.services_by_name['ProcessAPI'] = _PROCESSAPI
+DESCRIPTOR.services_by_name['ProcessWriteAPI'] = _PROCESSWRITEAPI
 
 # @@protoc_insertion_point(module_scope)

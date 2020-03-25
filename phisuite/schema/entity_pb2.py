@@ -11,7 +11,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import common_pb2 as common__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+from . import common_pb2 as common__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -19,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='schema',
   syntax='proto3',
   serialized_options=b'\n\023com.phisuite.schemaB\013EntityProtoP\001',
-  serialized_pb=b'\n\x0c\x65ntity.proto\x12\x06schema\x1a\x0c\x63ommon.proto\"\x84\x01\n\x06\x45ntity\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.schema.Status\x12\x1b\n\x04\x64\x61ta\x18\x04 \x03(\x0b\x32\r.schema.Field\x12\x1e\n\x07options\x18\x05 \x03(\x0b\x32\r.schema.Field2\x8c\x02\n\tEntityAPI\x12)\n\x04List\x12\x0f.schema.Options\x1a\x0e.schema.Entity0\x01\x12&\n\x03Get\x12\x0f.schema.Options\x1a\x0e.schema.Entity\x12(\n\x06\x43reate\x12\x0e.schema.Entity\x1a\x0e.schema.Entity\x12(\n\x06Update\x12\x0e.schema.Entity\x1a\x0e.schema.Entity\x12*\n\x08\x41\x63tivate\x12\x0e.schema.Entity\x1a\x0e.schema.Entity\x12,\n\nDeactivate\x12\x0e.schema.Entity\x1a\x0e.schema.EntityB$\n\x13\x63om.phisuite.schemaB\x0b\x45ntityProtoP\x01\x62\x06proto3'
+  serialized_pb=b'\n\x0c\x65ntity.proto\x12\x06schema\x1a\x1cgoogle/api/annotations.proto\x1a\x0c\x63ommon.proto\"d\n\x06\x45ntity\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.schema.Status\x12\x1b\n\x04\x64\x61ta\x18\n \x03(\x0b\x32\r.schema.Field2\xb9\x01\n\rEntityReadAPI\x12L\n\x04List\x12\x0f.schema.Options\x1a\x0e.schema.Entity\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/schema/entity/v0/inspect0\x01\x12Z\n\x03Get\x12\x0f.schema.Options\x1a\x0e.schema.Entity\"2\x82\xd3\xe4\x93\x02,\x12*/schema/entity/v0/inspect/{name}/{version}2\x87\x03\n\x0e\x45ntityWriteAPI\x12M\n\x06\x43reate\x12\x0e.schema.Entity\x1a\x0e.schema.Entity\"#\x82\xd3\xe4\x93\x02\x1d\"\x18/schema/entity/v0/create:\x01*\x12^\n\x06Update\x12\x0e.schema.Entity\x1a\x0e.schema.Entity\"4\x82\xd3\xe4\x93\x02.\x1a)/schema/entity/v0/update/{name}/{version}:\x01*\x12`\n\x08\x41\x63tivate\x12\x0f.schema.Options\x1a\x0e.schema.Entity\"3\x82\xd3\xe4\x93\x02-2+/schema/entity/v0/activate/{name}/{version}\x12\x64\n\nDeactivate\x12\x0f.schema.Options\x1a\x0e.schema.Entity\"5\x82\xd3\xe4\x93\x02/2-/schema/entity/v0/deactivate/{name}/{version}B$\n\x13\x63om.phisuite.schemaB\x0b\x45ntityProtoP\x01\x62\x06proto3'
   ,
-  dependencies=[common__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,common__pb2.DESCRIPTOR,])
 
 
 
@@ -56,14 +57,7 @@ _ENTITY = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='data', full_name='schema.Entity.data', index=3,
-      number=4, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='options', full_name='schema.Entity.options', index=4,
-      number=5, type=11, cpp_type=10, label=3,
+      number=10, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -80,13 +74,12 @@ _ENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=39,
-  serialized_end=171,
+  serialized_start=68,
+  serialized_end=168,
 )
 
 _ENTITY.fields_by_name['status'].enum_type = common__pb2._STATUS
 _ENTITY.fields_by_name['data'].message_type = common__pb2._FIELD
-_ENTITY.fields_by_name['options'].message_type = common__pb2._FIELD
 DESCRIPTOR.message_types_by_name['Entity'] = _ENTITY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -100,72 +93,87 @@ _sym_db.RegisterMessage(Entity)
 
 DESCRIPTOR._options = None
 
-_ENTITYAPI = _descriptor.ServiceDescriptor(
-  name='EntityAPI',
-  full_name='schema.EntityAPI',
+_ENTITYREADAPI = _descriptor.ServiceDescriptor(
+  name='EntityReadAPI',
+  full_name='schema.EntityReadAPI',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=174,
-  serialized_end=442,
+  serialized_start=171,
+  serialized_end=356,
   methods=[
   _descriptor.MethodDescriptor(
     name='List',
-    full_name='schema.EntityAPI.List',
+    full_name='schema.EntityReadAPI.List',
     index=0,
     containing_service=None,
     input_type=common__pb2._OPTIONS,
     output_type=_ENTITY,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002\033\022\031/schema/entity/v0/inspect',
   ),
   _descriptor.MethodDescriptor(
     name='Get',
-    full_name='schema.EntityAPI.Get',
+    full_name='schema.EntityReadAPI.Get',
     index=1,
     containing_service=None,
     input_type=common__pb2._OPTIONS,
     output_type=_ENTITY,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002,\022*/schema/entity/v0/inspect/{name}/{version}',
   ),
+])
+_sym_db.RegisterServiceDescriptor(_ENTITYREADAPI)
+
+DESCRIPTOR.services_by_name['EntityReadAPI'] = _ENTITYREADAPI
+
+
+_ENTITYWRITEAPI = _descriptor.ServiceDescriptor(
+  name='EntityWriteAPI',
+  full_name='schema.EntityWriteAPI',
+  file=DESCRIPTOR,
+  index=1,
+  serialized_options=None,
+  serialized_start=359,
+  serialized_end=750,
+  methods=[
   _descriptor.MethodDescriptor(
     name='Create',
-    full_name='schema.EntityAPI.Create',
-    index=2,
+    full_name='schema.EntityWriteAPI.Create',
+    index=0,
     containing_service=None,
     input_type=_ENTITY,
     output_type=_ENTITY,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002\035\"\030/schema/entity/v0/create:\001*',
   ),
   _descriptor.MethodDescriptor(
     name='Update',
-    full_name='schema.EntityAPI.Update',
-    index=3,
+    full_name='schema.EntityWriteAPI.Update',
+    index=1,
     containing_service=None,
     input_type=_ENTITY,
     output_type=_ENTITY,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002.\032)/schema/entity/v0/update/{name}/{version}:\001*',
   ),
   _descriptor.MethodDescriptor(
     name='Activate',
-    full_name='schema.EntityAPI.Activate',
-    index=4,
+    full_name='schema.EntityWriteAPI.Activate',
+    index=2,
     containing_service=None,
-    input_type=_ENTITY,
+    input_type=common__pb2._OPTIONS,
     output_type=_ENTITY,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002-2+/schema/entity/v0/activate/{name}/{version}',
   ),
   _descriptor.MethodDescriptor(
     name='Deactivate',
-    full_name='schema.EntityAPI.Deactivate',
-    index=5,
+    full_name='schema.EntityWriteAPI.Deactivate',
+    index=3,
     containing_service=None,
-    input_type=_ENTITY,
+    input_type=common__pb2._OPTIONS,
     output_type=_ENTITY,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002/2-/schema/entity/v0/deactivate/{name}/{version}',
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_ENTITYAPI)
+_sym_db.RegisterServiceDescriptor(_ENTITYWRITEAPI)
 
-DESCRIPTOR.services_by_name['EntityAPI'] = _ENTITYAPI
+DESCRIPTOR.services_by_name['EntityWriteAPI'] = _ENTITYWRITEAPI
 
 # @@protoc_insertion_point(module_scope)
